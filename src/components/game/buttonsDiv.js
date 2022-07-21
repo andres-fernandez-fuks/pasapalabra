@@ -1,43 +1,33 @@
-import Button from '@mui/material/Button';
-import '../style.css';
+import { IconButton } from '@mui/material';
+import './style.css';
 import PlayCircleOutlineIcon from '@mui/icons-material/PlayCircleOutline';
 
 export default function ButtonsDiv(props) {
+
+    const styles = {
+        button: {
+            width: 64, height: 64,
+            padding: 0
+        },
+        icon: {
+            width: 250, height: 250,
+            fontSize:40,
+            color:'#fffff'
+        },
+        tooltip: {
+            marginLeft:7
+        }
+    };
+
     return (
         <div className="button-div">
             <div>
-                <Button
+                <IconButton
                     variant="contained"
-                    color="success"
                     onClick={props.startFunction}
                 >
-                    Iniciar juego &nbsp;
-                    <PlayCircleOutlineIcon />
-                </Button>
-            </div>
-            <div style={{paddingTop: "30px"}}>
-                <Button variant="contained" color="primary" onClick={props.resumeFunction}>
-                    Reanudar &nbsp;
-                    <PlayCircleOutlineIcon />
-                </Button>
-            </div>
-            <div style={{paddingTop: "30px"}}>
-                <Button variant="contained" color="secondary">
-                    Pasapalabra &nbsp;
-                    <PlayCircleOutlineIcon />
-                </Button>
-            </div>
-            <div style={{paddingTop: "30px"}}>
-                <Button variant="contained" color="warning" onClick={props.testFunction}> 
-                    Test &nbsp;
-                    <PlayCircleOutlineIcon />
-                </Button>
-            </div>
-            <div style={{paddingTop: "30px"}}>
-                <Button variant="contained" color="info" onClick={props.restartFunction}> 
-                    Resetear &nbsp;
-                    <PlayCircleOutlineIcon />
-                </Button>
+                    <PlayCircleOutlineIcon sx={{ fontSize: "250px" }}/>
+                </IconButton>
             </div>
         </div>
     )

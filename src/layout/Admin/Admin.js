@@ -16,112 +16,41 @@
 
 */
 import React from "react";
-import { Route, Switch, Redirect, useLocation } from "react-router-dom";
-// javascript plugin used to create scrollbars on windows
-import PerfectScrollbar from "perfect-scrollbar";
+import { Route, Routes, Redirect, useLocation } from "react-router-dom";
 
 // core components
-import AdminNavbar from "components/Navbars/AdminNavbar.js";
-import Footer from "components/Footer/Footer.js";
-import Sidebar from "components/Sidebar/Sidebar.js";
-
-import routes from "utils/routes.js";
-
-import logo from "assets/img/logo.png";
-
-var ps;
+import routes from "../../utils/routes.js";
+import gamePage from "../../pages/gamePage";
+import leaderboardPage from "../../pages/leaderboardPage";
 
 function Admin(props) {
-  const location = useLocation();
-  const mainPanelRef = React.useRef(null);
-  const [sidebarOpened, setsidebarOpened] = React.useState(
-    document.documentElement.className.indexOf("nav-open") !== -1
-  );
-  React.useEffect(() => {
-    if (navigator.platform.indexOf("Win") > -1) {
-      document.documentElement.className += " perfect-scrollbar-on";
-      document.documentElement.classList.remove("perfect-scrollbar-off");
-      ps = new PerfectScrollbar(mainPanelRef.current, {
-        suppressScrollX: true,
-      });
-      let tables = document.querySelectorAll(".table-responsive");
-      for (let i = 0; i < tables.length; i++) {
-        ps = new PerfectScrollbar(tables[i]);
-      }
-    }
-    // Specify how to clean up after this effect:
-    return function cleanup() {
-      if (navigator.platform.indexOf("Win") > -1) {
-        ps.destroy();
-        document.documentElement.classList.add("perfect-scrollbar-off");
-        document.documentElement.classList.remove("perfect-scrollbar-on");
-      }
-    };
-  });
-  React.useEffect(() => {
-    if (navigator.platform.indexOf("Win") > -1) {
-      let tables = document.querySelectorAll(".table-responsive");
-      for (let i = 0; i < tables.length; i++) {
-        ps = new PerfectScrollbar(tables[i]);
-      }
-    }
-    document.documentElement.scrollTop = 0;
-    document.scrollingElement.scrollTop = 0;
-    if (mainPanelRef.current) {
-      mainPanelRef.current.scrollTop = 0;
-    }
-  }, [location]);
-  // this function opens and closes the sidebar on small devices
-  const toggleSidebar = () => {
-    document.documentElement.classList.toggle("nav-open");
-    setsidebarOpened(!sidebarOpened);
-  };
-
-  React.useEffect(
-    function checkIfLoggedIn() {
-      if (window.location.pathname == simple_routes.login) {
-        return
-      } else if (!localStorage.getItem("token")) {
-        window.location.pathname = simple_routes.login;
-      }
-    }
-  )
-  
+ 
   return (
-    <BackgroundColorContext.Consumer>
+    <>
       {({ color, changeColor }) => (
         <React.Fragment>
           <div className="wrapper">
-            <Sidebar
-              routes={routes}
-              logo={{
-                text: "ITIL Management",
-                imgSrc: logo,
-              }}
-              toggleSidebar={toggleSidebar}
-            />
             <div className="main-panel"  data={color}>
-              <AdminNavbar
-                brandText={getBrandText(location.pathname)}
-                toggleSidebar={toggleSidebar}
-                sidebarOpened={sidebarOpened}
-              />
-              <Switch>
+              <Routes>
                 <Route
-                path={'/login'}
-                component={LoginPage}
+                  path={routes.gamePage}
+                  component={gamePage}
                 />
-                <Redirect from="*" to="/admin/dashboard" />
-              </Switch>
+                <Route
+                  path={routes.leaderboardPage}
+                  component={leaderboardPage}
+                />
+                {/* <Redirect from="*" to="/" /> */}
+              </Routes>
               {
                 // we don't want the Footer to be rendered on map page
-                location.pathname === "/admin/maps" ? null : <Footer fluid />
+                // location.pathname === "/admin/maps" ? null : <Footer fluid />
               }
             </div>
           </div>
         </React.Fragment>
       )}
-    </BackgroundColorContext.Consumer>
+    </>
   );
 }
 

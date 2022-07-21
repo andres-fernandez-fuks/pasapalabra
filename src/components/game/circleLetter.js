@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import '../style.css';
+import './style.css';
 
 export default function CircleLetter(props) {
 

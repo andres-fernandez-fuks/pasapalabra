@@ -1,0 +1,144 @@
+:root {
+  --top-position: 10%;
+  --second-to-top-position: 20%;
+}
+
+.main-div {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  top: 0;
+  z-index: 0;
+  overflow: hidden;
+  display: block;
+  background: linear-gradient(to right top, #051937, #3c324c, #655061, #87747a, #a49a9a);
+}
+
+.main-col {
+  position: absolute;
+  top: 15%;
+  right: 7.5%;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.introduction-button {
+  width: 300px;
+  color: black;
+  font-weight: bold;
+  font-size: 24px;
+  font-family: Papyrus, fantasy;
+  text-transform: None;
+}
+
+.cake-div {
+  position: absolute;
+  top: 15%;
+  left: 20%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.message-div {
+  position: absolute;
+  bottom: 25%;
+  left: 15%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.buttons-div {
+  position: absolute;
+  top: 30%;
+  right: 40%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.cake-img {
+  width:250px;
+  height: auto;
+}
+
+.balloons-div-1 {
+  position: absolute;
+  top: var(--top-position);
+  left: 28%;
+}
+
+.balloons-div-2 {
+  position: absolute;
+  top: var(--top-position);
+  right: 30%;
+}
+
+.balloon-img {
+  width:200px;
+  height: auto;
+}
+
+.title-1-div {
+  position: absolute;
+  top: var(--top-position);
+  left: 40%;
+}
+
+.title-1-img {
+  width:300px;
+  height: auto;
+}
+
+.title-2-div {
+  position: absolute;
+  top: var(--second-to-top-position);
+  left: 41.5%;
+}
+
+.title-2-img {
+  width:250px;
+  height: auto;
+}
+
+.audio-button-div {
+  position: absolute;
+  bottom: 20%;
+  left: 47.5%;
+}
+
+.audio-button {
+  border-radius: 50%;
+  border-style: solid;
+  color:white;
+}
+
+.confetti-div {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 30%;
+  height: 100%;
+}
+
+.confetti-img {
+  width:100%;
+  height: 100%;
+}
+
+.confetti-div-2 {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 30%;
+  height: 100%;
+}
+
+.confetti-img {
+  width:100%;
+  height: 100%;
+}
