@@ -14,7 +14,7 @@ import messageGif from '../assets/message.gif';
 import balloonsGif from '../assets/balloons.gif';
 import titleGif from '../assets/title.gif';
 import title2Gif from '../assets/title-2.gif';
-import { playHappyBirthdaySong } from '../components/game/audioPlayer';
+import { SongPlayer } from '../components/game/audioPlayer';
 import confettiGif from '../assets/confetti.gif';
 
 const PINK_BACKGOUND = "linear-gradient(45deg, #FE6B8B 30%, #FF8E53 90%)";
@@ -40,12 +40,6 @@ export default function IntroductionPage(props) {
     const [audioEnabled, setAudioEnabled] = React.useState(false);
 
     let navigate = useNavigate();
-
-    React.useEffect(() => {
-        if (audioEnabled) {
-            playHappyBirthdaySong();
-        }
-    }, [audioEnabled]);
 
     const handleClick = () => {
         setAudioEnabled(!audioEnabled);
@@ -113,7 +107,7 @@ export default function IntroductionPage(props) {
                     background={GREEN_BACKGROUND}
                     variant="contained"
                     color="warning"
-                    onClick={props.startFunction}
+                    onClick={e => navigate(routes.leaderboardPage)}
                 >
                     Puntajes &nbsp;
                 </CustomButton>
@@ -124,6 +118,7 @@ export default function IntroductionPage(props) {
             <div className="confetti-div-2">
                 <img className="confetti-img" src={confettiGif} alt="Título" />
             </div>
+            <SongPlayer audioEnabled={audioEnabled}/>
         </div>
     )
 }

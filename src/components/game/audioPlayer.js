@@ -90,8 +90,16 @@ export default function AudioPlayer(letter) {
   return audio;
 };
 
-export function playHappyBirthdaySong(audioEnabled) {
-    const audio = new Audio(happyBirthdayAudio);
+export function SongPlayer(props) {
+    const audio = React.useMemo(() => new Audio(happyBirthdayAudio), []);
     audio.loop = false;
-    audio.play();
+
+    React.useEffect(() => {
+        if (props.audioEnabled) {
+            audio.play();
+        } else {
+            audio.pause();
+        }
+    }, [props.audioEnabled]);
+    
   };

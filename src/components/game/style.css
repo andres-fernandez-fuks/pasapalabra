@@ -40,22 +40,62 @@
     font-family: 'Edu QLD Beginner';
 }
 
-.score-div {
-    width:10%;
+.score-main-div {
     position: absolute;
     right: 10%;
-    top: 5%;
+    top: 10%;
+    width: 10%;
+    height: 30%;
     font-family: 'Edu QLD Beginner';
+    display: block;
+    justify-content: space-between;
+    align-items: center;
+    padding-top:0.5%;
+    padding-bottom:0.5%;
+}
+
+.name-div {
+    font-size: 24px;
+    justify-content: center;
+    align-items: center;
+    margin-bottom:20px;
+}
+
+.score-div {
     font-size: 30px;
     display: flex;
     flex-direction: column;
     border: thick double #8c1919;
     justify-content: center;
     align-items: center;
+    padding-top:20px;
+    padding-bottom:20px;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.score-div-inner {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-top: 2.5px;
+    margin-bottom: 2.5px;
+}
+
+.presentator-img {
+    width: 75%;
+    height: auto;
+}
+
+.modal-main-div {
+    font-family: 'Edu QLD Beginner';
+    font-size: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
     padding-top:0.5%;
     padding-bottom:0.5%;
 }
 
-.score-div-inner {
-    justify-content: center;
-}

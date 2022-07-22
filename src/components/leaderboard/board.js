@@ -1,51 +1,51 @@
 import React, { useState } from 'react'
 import Profiles from './profiles';
 import { Leaderboard } from './database';
+import './style.css';
+import getData from './dataReader'
 
 export default function Board() {
 
-    const [period, setPeriod] = useState(0);
+  const [period, setPeriod] = useState(0);
 
   const handleClick = (e) => {
-     
     setPeriod(e.target.dataset.id)
   }
 
+  const [data, setData] = useState([]);
+
+  React.useEffect(() => {
+    getData().then(data => {
+        setData(data);
+    }).catch(err => {
+        console.log(err);
+    });
+  }, [])
+    
+
   return (
     <div className="board">
-        <h1 className='leaderboard'>Leaderboard</h1>
-
-        <div className="duration">
-            <button onClick={handleClick} data-id='7'>7 Days</button>
-            <button onClick={handleClick} data-id='30'>30 Days</button>
-            <button onClick={handleClick} data-id='0'>All-Time</button>
-        </div>
-
-        <Profiles Leaderboard={between(Leaderboard, period)}></Profiles>
+        <h1 className='leaderboard'>Ranking</h1>
+        <Profiles Leaderboard={between(data)}></Profiles>
     </div>
   )
 }
 
 
 
-function between(data, between){
-    const today = new Date();
-    const previous = new Date(today);
-    previous.setDate(previous.getDate() - (between + 1));
-
-    let filter = data.filter(val => {
-        let userDate = new Date(val.dt);
-        if (between == 0) return val;
-        return previous <= userDate && today >= userDate;
-    })
-
-    // sort with asending order
-    return filter.sort((a, b) => {
-        if ( a.score === b.score){
-            return b.score - a.score;
-        } else{
-            return b.score - a.score;
+function between(data){
+    return data.sort((a, b) => {
+        if (a.correctAnswers > b.correctAnswers) {
+            return -1;
+        } if (a.correctAnswers < b.correctAnswers) {
+            return 1;
         }
-    })
-
+        if (a.incorrectAnswers > b.incorrectAnswers) {
+            return 1;
+        } if (a.incorrectAnswers < b.incorrectAnswers) {
+            return -1;
+        } else {
+            return 0;
+        }
+    }).slice(0, 10);
 }

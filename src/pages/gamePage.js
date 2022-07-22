@@ -7,6 +7,7 @@ import AudioPlayer from '../components/game/audioPlayer';
 import ScoreDiv from '../components/game/scoreDiv';
 import { dialogClasses } from '@mui/material';
 import Timer from '../components/game/timer';
+import NameModal from '../components/game/nameModal';
 
 const POSSIBLE_STATUSES = ['pending', 'success', 'failure', 'skipped'];
 
@@ -47,6 +48,9 @@ export default function App() {
   const [answer, setAnswer] = useState(null);
   const [resetTranscript, setResetTranscript] = useState(false);
   const [dictaphoneListening, setDictaphoneListening] = useState(false);
+  const [playerName, setPlayerName] = useState('');
+  const [openModal, setOpenModal] = useState(false);
+  const [gameOver, setGameOver] = useState(false);
   const [gameStatus, setGameStatus] = React.useState(
     {
       correct: 0,
@@ -55,10 +59,20 @@ export default function App() {
     }
   );
 
+  React.useEffect(() => {
+    setOpenModal(true);
+  }, []);
+
   React.useEffect( () => {
       if (activeLetter && !dictaphoneActive)
         playNextQuestion();
   }, [activeLetter, dictaphoneActive]);
+
+  React.useEffect( () => {
+    if (gameOver) {
+      handleGameOver();
+    }
+  }, [gameOver]);
 
   React.useEffect(() => {
     if (!isPlaying) return;
@@ -80,6 +94,9 @@ export default function App() {
     setActiveLetter(statuses[activeLetter].nextLetter);  // triggers playNextQuestion
   }, [answer]);
 
+  const handleGameOver = () => {
+  }
+
   const dictaphoneUpdateFunction = (finalTranscript) => {
     setAnswer(finalTranscript);
   }
@@ -97,27 +114,16 @@ export default function App() {
   }
 
   const startFunction = () => {
-    debugger;
     setIsPlaying(true);
     setActiveLetter('A'); // triggers playNextQuestion
   }
 
-  const testFunction = () => {
-    setDictaphoneActive(true);
+  const nameSelectionFunction = (name) => {
+    debugger;
+    setPlayerName(name);
+    setOpenModal(false);
   }
 
-  const resumeFunction = () => {
-    playNextQuestion();
-  }
-
-  const restartFunction = () => {
-    setStatuses(DEFAULT_INFO);
-    setIsPlaying(false);
-    setActiveLetter('');
-    setResetTranscript(true);
-    setDictaphoneActive(false);
-    setAnswer(null);
-  }
 
   const renderCentralDiv = () => {
     if (!isPlaying) {
@@ -174,8 +180,14 @@ export default function App() {
         listeningFunction={dictaphoneListeningFunction}
         resetTranscript={resetTranscript}
       />
-      <ScoreDiv correct={gameStatus.correct} incorrect={gameStatus.incorrect} skipped={gameStatus.skipped}/>
+      <ScoreDiv
+        playerName={playerName}
+        correct={gameStatus.correct}
+        incorrect={gameStatus.incorrect}
+        skipped={gameStatus.skipped}
+      />
       {renderCentralDiv()}
+      <NameModal open={openModal} selectionFunction={nameSelectionFunction}/>
     </div>
   );
 }
