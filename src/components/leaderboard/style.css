@@ -14,7 +14,7 @@
         display: flex;
         justify-content: center;
         align-items: center;
-        height: 100vh;
+        height: 60vh;
 }
 
 .board {
@@ -79,4 +79,9 @@
 
 .text-dark{
     color: var(--color-dark);
+}
+
+.avatar-img {
+    scale: 5.5;
+    width: 100%;
 }

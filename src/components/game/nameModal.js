@@ -1,16 +1,15 @@
 import * as React from 'react';
-import {Button, Row} from 'reactstrap';
-import { fuzzySearch } from "react-select-search";
-import Select from 'react-select'
+import Button from '@mui/material/Button';
 import TextField from '@mui/material/TextField';
 import Dialog from '@mui/material/Dialog';
 import DialogActions from '@mui/material/DialogActions';
 import DialogContent from '@mui/material/DialogContent';
 import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
-import {dbGet} from 'utils/backendFetchers';
 import { makeStyles } from '@material-ui/core/styles';
-import { dbPost } from 'utils/backendFetchers';
+import presentatorImage from '../../assets/presentator.png';
+import './style.css';
+import { useNavigate } from 'react-router-dom';
 
 const dialogStyles = makeStyles(theme => ({
     root: {
@@ -36,62 +35,39 @@ const selectStyles = {
 
 export default function FormDialog(props) {
   const [open, setOpen] = React.useState(false);
-  const [incidents, setIncidents] = React.useState([]);
-  const [selectedIncident, setSelectedIncident] = React.useState(null);
-
   const classes = dialogStyles();
-  
-  React.useEffect(() => {
-    dbGet("incidents/names").then(data => {
-        setIncidents(data["incidents"]);
-    }).catch(err => {console.log(err)});
-    }   , []);
+  let navigate = useNavigate();
 
   const handleClickOpen = () => {
     setOpen(true);
   };
 
-  const handleClose = () => {
-    setOpen(false);
+  const handleReturn = () => {
+    navigate("/");
   };
 
-  const handleAddition = () => {
-    props.addFunction(selectedIncident);
-    setOpen(false);
-  }
+  const handleSelection = () => {
+    props.selectionFunction(document.getElementById("name").value);
+  };
 
   return (
     <div >
-        <Button className="btn-fill"
-                color="info"
-                size="sm"
-                onClick={() => handleClickOpen()}
-            >
-            Agregar incidente
-        </Button>
-      <Dialog maxWidth="lg" open={open} onClose={handleClose} classes={{ paper : classes.dialogPaper}}>
-        
-        <DialogContent style={{overflow: "visible"}}>
-          <DialogContentText>
-            Elija un incidente para agregar
-          </DialogContentText>
-          <div style={{marginTop:"10px"}}/>
-          <Select
-            
-            id={"incident"}
-            options={incidents}
-            styles = {selectStyles}
-            onChange = {(event) => {setSelectedIncident(event.value)}}
-            //value={getItemValue(index)}
-            //onChange={event => handleFormChange(event, index, "incident_name_"+index)}
-            search
-            filterOptions={fuzzySearch} 
-            placeholder="Buscar un incidente"
-          />
+      <Dialog maxWidth="lg" open={props.open} onClose={handleReturn} classes={{ paper : classes.dialogPaper}}>
+        <DialogContent>
+          <div className="modal-main-div">
+            <div>
+              <img className="presentator-img" src={presentatorImage} alt="Presentador" />
+            </div>
+            <div style={{paddingTop: "5px"}}>
+            ¿Cuál es tu nombre?
+            <TextField style={{paddingTop: "5px"}} id="name"variant="outlined" />
+            </div>
+            <div style={{marginTop:"10px"}}/>
+          </div>
         </DialogContent>
         <DialogActions style={{justifyContent: "center"}}>
-            <Button color="secondary" onClick= {handleAddition}>Agregar</Button>
-            <Button color="danger" onClick={handleClose}>Volver</Button>
+            <Button variant="contained" size="small" color="info" onClick= {handleSelection}>Confirmar</Button>
+            <Button variant="contained" size="small" color="warning" onClick={handleReturn}>Volver</Button>
         </DialogActions>
       </Dialog>
     </div>
