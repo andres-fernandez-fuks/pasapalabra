@@ -56,7 +56,7 @@
   flex-direction: row;
 }
 
-.main-div {
+.game-main-div {
   min-height: 692px;
   position: fixed;
   bottom: 0;
@@ -65,7 +65,7 @@
   top: 0;
   z-index: 0;
   overflow: hidden;
-  background: linear-gradient(to right top, #051937, #3c324c, #655061, #87747a, #a49a9a);
+  background: linear-gradient(#e66465, #dbb0e3);
 }
 
 .font-link {

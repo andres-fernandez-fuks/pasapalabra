@@ -5,7 +5,7 @@ import Board from '../components/leaderboard/board'
 
 export default function leaderBoard() {
   return (
-    <div className="App" id='main'>
+    <div id='score-main'>
         <Board></Board>
     </div>
   );

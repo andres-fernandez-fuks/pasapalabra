@@ -8,6 +8,7 @@ import routes from './utils/routes';
 import GamePage from './pages/gamePage';
 import LeaderboardPage from './pages/leaderboardPage';
 import IntroductionPage from './pages/introductionPage';
+import InstructionsPage from './pages/instructionsPage';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -15,15 +16,19 @@ root.render(
     <Routes>
       <Route
         path={routes.gamePage}
-        element={<GamePage />}
+        element={<GamePage/>}
       />
       <Route
         path={routes.leaderboardPage}
-        element={<LeaderboardPage />}
+        element={<LeaderboardPage/>}
       />
-        <Route
-        path={"/"}
-        element={<IntroductionPage />}
+      <Route
+        path={routes.instructionsPage}
+        element={<InstructionsPage/>}
+      />
+      <Route
+        path={routes.introductionPage}
+        element={<IntroductionPage/>}
       />
     </Routes>
   </BrowserRouter>

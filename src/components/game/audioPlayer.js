@@ -92,7 +92,7 @@ export default function AudioPlayer(letter) {
 
 export function SongPlayer(props) {
     const audio = React.useMemo(() => new Audio(happyBirthdayAudio), []);
-    audio.loop = false;
+    audio.loop = true;
 
     React.useEffect(() => {
         if (props.audioEnabled) {

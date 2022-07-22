@@ -1,36 +1,43 @@
 import React from 'react'
 import './style.css'
+import Button from '@mui/material/Button';
+import { useNavigate } from 'react-router-dom';
 
-export default function profiles({ Leaderboard }) {
-    debugger;
+export default function Profiles({ Leaderboard }) {
+  let navigate = useNavigate();
   return (
-        <div id="profile">
+    <div className="leaderboard-main-div">
+        <h1 className='leaderboard'>Ranking</h1>
+        <table className="scoreboard-table ">
+            <tr>
+                <th className='th'>Nombre</th>
+                <th className='th'>Correctas</th>
+                <th className='th'>Incorrectas</th>
+            </tr>
             {Item(Leaderboard)}
-        </div>
+        </table>
+        <Button
+            style={{marginTop: "25px"}}
+            variant="contained"
+            size="large"
+            color="warning"
+            onClick={() => {navigate("/");}}>
+            Volver
+        </Button>
+    </div>
   )
 }
-
 
 function Item(data){
     return (
         <>
             {
                 data.map((value, index) => (
-                    <div className="flex" key={index}>
-                        <div className="item">
-                            <img className="avatar-img" src={value.imgPath} alt="" />
-                            <div className="info">
-                                <h3 className='name text-dark'>{value.name}</h3>    
-                                <span>{value.location}</span>
-                            </div>                
-                        </div>
-                        <div className="item">
-                            <span style={{color:"green"}}> + {value.correctAnswers}</span>
-                        </div>
-                        <div className="item">
-                            <span style={{marginLeft:"100px", color:"red"}}> - {value.incorrectAnswers}</span>
-                        </div>
-                    </div>
+                    <tr>
+                        <td className='td'>{value.name}</td>                
+                        <td className='td' style={{color:"green"}}> + {value.correctAnswers}</td>
+                        <td className='td' style={{marginLeft:"100px", color:"red"}}> - {value.incorrectAnswers}</td>
+                    </tr>
                     )
                 )
             }

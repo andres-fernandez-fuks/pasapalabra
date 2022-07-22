@@ -143,7 +143,7 @@ export default function App() {
     
  
   return (
-    <div className="main-div">
+    <div className="game-main-div">
       <div>
         <div className='circle-container'>
           <div className='deg0'> <CircleLetter letter="G" status ={statuses["G"].status}/> </div>

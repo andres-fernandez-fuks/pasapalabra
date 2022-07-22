@@ -22,18 +22,17 @@ export default function Board() {
     });
   }, [])
     
-
+  console.log("Data: ", data);
   return (
-    <div className="board">
-        <h1 className='leaderboard'>Ranking</h1>
-        <Profiles Leaderboard={between(data)}></Profiles>
+    <div>
+        <Profiles Leaderboard={sortData(data)}></Profiles>
     </div>
   )
 }
 
 
 
-function between(data){
+function sortData(data){
     return data.sort((a, b) => {
         if (a.correctAnswers > b.correctAnswers) {
             return -1;

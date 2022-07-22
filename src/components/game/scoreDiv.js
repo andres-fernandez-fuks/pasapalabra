@@ -6,7 +6,7 @@ export default function ScoreDiv(props) {
     return (
         <>
             <div className="score-main-div">
-                <div className='name-div'>
+                <div className='player-name-div'>
                     Jugador: {props.playerName}
                 </div>
                 <div className="score-div">

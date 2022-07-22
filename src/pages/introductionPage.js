@@ -16,6 +16,7 @@ import titleGif from '../assets/title.gif';
 import title2Gif from '../assets/title-2.gif';
 import { SongPlayer } from '../components/game/audioPlayer';
 import confettiGif from '../assets/confetti.gif';
+import frameImg from '../assets/frame-2.png';
 
 const PINK_BACKGOUND = "linear-gradient(45deg, #FE6B8B 30%, #FF8E53 90%)";
 const BLUE_BACKGROUND = "linear-gradient(45deg, #2196F3 30%, #21CBF3 90%)";
@@ -83,7 +84,8 @@ export default function IntroductionPage(props) {
             <div className="title-2-div">
                 <img className="title-2-img" src={title2Gif} alt="Título" />
             </div>
-            <div className="buttons-div">
+            <img className="frame-img" src={frameImg} alt="Marco" />
+            <div className="intro-buttons-div">
                 <CustomButton
                     style={{ margin: "15px", color: "black", fontWeight: "bold", fontSize:"24px", fontFamily: "Papyrus", width: "300px", textTransform: "none"}}
                     background={PINK_BACKGOUND}
@@ -98,7 +100,7 @@ export default function IntroductionPage(props) {
                     background={BLUE_BACKGROUND}
                     variant="contained"
                     color="info"
-                    onClick={props.startFunction}
+                    onClick={e => navigate(routes.instructionsPage)}
                 >
                     Instrucciones &nbsp;
                 </CustomButton>

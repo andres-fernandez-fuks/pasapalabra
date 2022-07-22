@@ -1,0 +1,70 @@
+.instructions-main-div {
+    min-height: 692px;
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: linear-gradient(90deg, rgba(69,172,226,1) 0%, rgba(108,211,232,1) 45%, rgba(173,244,255,1) 100%);
+}
+
+.scroll-img {
+    width: 40%;
+    height: 80%;
+    z-index: -1;
+}
+
+.instructions-div {
+    min-height: 692px;
+    position: fixed;
+    left: 0;
+    top: 20%;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.instructions-buttons-div {
+    position: absolute;
+    height: 55%;
+    bottom: 25%;
+    left: 0;
+    width: 100%;
+    margin-top: 20px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.font-link {
+    font-family: 'Neucha';
+}
+
+.instruction {
+    font-size: 20px;
+    font-family: 'Neucha';
+    margin-bottom: 10px;
+}
+
+.warning {
+    font-size: 24px;
+    font-family: 'Neucha';
+    margin-bottom: 20px;
+    color: red;
+    text-decoration: underline;
+}
+
+.instructions-title {
+    position: absolute;
+    top: 10%;
+}
