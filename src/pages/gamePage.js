@@ -8,6 +8,9 @@ import ScoreDiv from '../components/game/scoreDiv';
 import { dialogClasses } from '@mui/material';
 import Timer from '../components/game/timer';
 import NameModal from '../components/game/nameModal';
+import { addNewScore } from '../components/leaderboard/dataReader';
+import routes from '../utils/routes';
+import { useNavigate } from 'react-router-dom';
 
 const POSSIBLE_STATUSES = ['pending', 'success', 'failure', 'skipped'];
 
@@ -94,8 +97,7 @@ export default function App() {
     setActiveLetter(statuses[activeLetter].nextLetter);  // triggers playNextQuestion
   }, [answer]);
 
-  const handleGameOver = () => {
-  }
+  let navigate = useNavigate();
 
   const dictaphoneUpdateFunction = (finalTranscript) => {
     setAnswer(finalTranscript);
@@ -119,7 +121,6 @@ export default function App() {
   }
 
   const nameSelectionFunction = (name) => {
-    debugger;
     setPlayerName(name);
     setOpenModal(false);
   }
@@ -135,10 +136,24 @@ export default function App() {
     } else {
       return (
         <div className="timer-div">
-          <Timer startTimer={isPlaying} />
+          <Timer startTimer={isPlaying} setGameOver={setGameOver} />
         </div>
       )
     }
+  }
+
+  const handleGameOver = () => {
+    setIsPlaying(false);
+    let score = {
+      name: playerName,
+      correct: gameStatus.correct,
+      incorrect: gameStatus.incorrect,
+    }
+    addNewScore(score).then (() => {
+      navigate(routes.introductionPage)
+    }).catch((error) => {
+      console.log(error);
+    });
   }
     
  

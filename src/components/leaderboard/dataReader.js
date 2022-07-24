@@ -1,6 +1,6 @@
 import React from 'react';
 import Papa from 'papaparse';
-
+import { dbGet, dbPut } from '../../utils/dbFetcher';
 
 const parseOptions = {
     header: false,
@@ -9,10 +9,9 @@ const parseOptions = {
     delimiter: ",",
 };
 
-
 async function getData() {
-    const data = Papa.parse(await fetchCsv(), parseOptions);
-    const new_data = data.data.map(playerInfo => {
+    let data = await dbGet('scores');
+    const new_data = data.map(playerInfo => {
         return {
             name: playerInfo[0],
             correctAnswers: playerInfo[1],
@@ -22,13 +21,9 @@ async function getData() {
     return new_data;
 }
 
-async function fetchCsv() {
-    const response = await fetch('/score.csv');
-    const reader = response.body.getReader();
-    const result = await reader.read();
-    const decoder = new TextDecoder('utf-8');
-    const csv = await decoder.decode(result.value);
-    return csv;
+export async function addNewScore(score) {
+    let data = { "result": [score.name, score.correct.toString(), score.incorrect.toString()]}
+    await dbPut('scores', data);
 }
 
 export default getData;

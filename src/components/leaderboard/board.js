@@ -5,17 +5,15 @@ import './style.css';
 import getData from './dataReader'
 
 export default function Board() {
-
   const [period, setPeriod] = useState(0);
-
   const handleClick = (e) => {
     setPeriod(e.target.dataset.id)
   }
-
   const [data, setData] = useState([]);
 
   React.useEffect(() => {
     getData().then(data => {
+        debugger;
         setData(data);
     }).catch(err => {
         console.log(err);
@@ -25,26 +23,8 @@ export default function Board() {
   console.log("Data: ", data);
   return (
     <div>
-        <Profiles Leaderboard={sortData(data)}></Profiles>
+        <Profiles Leaderboard={data}></Profiles>
     </div>
   )
 }
 
-
-
-function sortData(data){
-    return data.sort((a, b) => {
-        if (a.correctAnswers > b.correctAnswers) {
-            return -1;
-        } if (a.correctAnswers < b.correctAnswers) {
-            return 1;
-        }
-        if (a.incorrectAnswers > b.incorrectAnswers) {
-            return 1;
-        } if (a.incorrectAnswers < b.incorrectAnswers) {
-            return -1;
-        } else {
-            return 0;
-        }
-    }).slice(0, 10);
-}

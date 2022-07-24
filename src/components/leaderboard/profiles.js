@@ -29,6 +29,7 @@ export default function Profiles({ Leaderboard }) {
 }
 
 function Item(data){
+    if (!data) return <></>;
     return (
         <>
             {
