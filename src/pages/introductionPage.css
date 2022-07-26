@@ -61,11 +61,6 @@
   justify-content: center;
 }
 
-.cake-img {
-  width:250px;
-  height: auto;
-}
-
 .balloons-div-1 {
   position: absolute;
   top: var(--top-position);

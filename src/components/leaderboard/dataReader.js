@@ -21,8 +21,11 @@ async function getData() {
     return new_data;
 }
 
-export async function addNewScore(score) {
-    let data = { "result": [score.name, score.correct.toString(), score.incorrect.toString()]}
+export async function addNewScore(score, answerLog) {
+    let data = {
+        "result": score ? [score.name, score.correct.toString(), score.incorrect.toString()] : null,
+        "log": answerLog
+    }
     await dbPut('scores', data);
 }
 

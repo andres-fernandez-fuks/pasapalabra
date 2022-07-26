@@ -22,10 +22,22 @@ export default function CircleLetter(props) {
         }
     }
 
+    const determineBorder = () => {
+        if (props.letter === props.currentLetter) {
+            return '3px solid #32B634';
+        }
+        return 'None';
+    }
+
     return (
             <div
                 className="circle-letter"
-                style={{backgroundColor:determineBackgroundColor()}}
+                style={
+                    {
+                        backgroundColor:determineBackgroundColor(),
+                        border: determineBorder()
+                    }
+                }
             >
                 {props.letter}
             </div>

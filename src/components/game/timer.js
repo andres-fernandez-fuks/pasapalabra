@@ -1,6 +1,6 @@
 import React from 'react';
 
-const TIMER_MAX = 200;
+const TIMER_MAX = 350;
 
 export default function Timer(props) {
     const [gameTimer, setGameTimer] = React.useState(null);

@@ -8,9 +8,6 @@ import VolumeOffIcon from '@mui/icons-material/VolumeOff';
 
 import routes from '../utils/routes';
 import { useNavigate  } from "react-router-dom";
-
-import cakeGif from '../assets/cake.gif';
-import messageGif from '../assets/message.gif';
 import balloonsGif from '../assets/balloons.gif';
 import titleGif from '../assets/title.gif';
 import title2Gif from '../assets/title-2.gif';
@@ -63,12 +60,6 @@ export default function IntroductionPage(props) {
 
     return (
         <div className="main-div" id='main'>
-            {/* <div className="cake-div">
-                <img className="cake-img" src={cakeGif} alt="Torta" />
-            </div>
-            <div className="message-div">
-                <img src={messageGif} alt="Mensaje" />
-            </div> */}
             <div className="audio-button-div">
                 {audioButtonDiv()}
             </div>

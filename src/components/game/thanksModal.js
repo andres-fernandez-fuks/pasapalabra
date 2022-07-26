@@ -35,25 +35,12 @@ const selectStyles = {
 
 export default function FormDialog(props) {
   const [open, setOpen] = React.useState(false);
-  const [name, setName] = React.useState('');
   const classes = dialogStyles();
   let navigate = useNavigate();
-
-  const handleClickOpen = () => {
-    setOpen(true);
-  };
 
   const handleReturn = () => {
     navigate("/");
   };
-
-  const handleSelection = () => {
-    props.selectionFunction(document.getElementById("name").value);
-  };
-
-  const handleChange = (event) => {
-    setName(event.target.value);
-  }
 
   return (
     <div >
@@ -64,16 +51,11 @@ export default function FormDialog(props) {
               <img className="presentator-img" src={presentatorImage} alt="Presentador" />
             </div>
             <div style={{paddingTop: "5px"}}>
-            ¿Cuál es tu nombre?
-            <TextField style={{paddingTop: "5px"}} id="name"variant="outlined" onChange={e => {handleChange(e)}} />
+            ¡¡Gracias por jugar!!
             </div>
             <div style={{marginTop:"10px"}}/>
           </div>
         </DialogContent>
-        <DialogActions style={{justifyContent: "center"}}>
-            <Button disabled={name === ''} variant="contained" size="small" color="info" onClick= {handleSelection}>Confirmar</Button>
-            <Button variant="contained" size="small" color="warning" onClick={handleReturn}>Volver</Button>
-        </DialogActions>
       </Dialog>
     </div>
   );

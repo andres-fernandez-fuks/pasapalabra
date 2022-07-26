@@ -9,6 +9,7 @@ import GamePage from './pages/gamePage';
 import LeaderboardPage from './pages/leaderboardPage';
 import IntroductionPage from './pages/introductionPage';
 import InstructionsPage from './pages/instructionsPage';
+import CongratulationsPage from './pages/congratulationsPage';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -25,6 +26,10 @@ root.render(
       <Route
         path={routes.instructionsPage}
         element={<InstructionsPage/>}
+      />
+      <Route
+        path={routes.congratulationsPage}
+        element={<CongratulationsPage/>}
       />
       <Route
         path={routes.introductionPage}

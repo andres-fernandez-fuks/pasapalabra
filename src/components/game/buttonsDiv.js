@@ -1,6 +1,9 @@
+import { Button } from '@mui/material';
 import { IconButton } from '@mui/material';
 import './style.css';
 import PlayCircleOutlineIcon from '@mui/icons-material/PlayCircleOutline';
+import PanToolIcon from '@mui/icons-material/PanTool';
+import MicIcon from '@mui/icons-material/Mic';
 
 export default function ButtonsDiv(props) {
 
@@ -14,6 +17,24 @@ export default function ButtonsDiv(props) {
                     <PlayCircleOutlineIcon sx={{ fontSize: "250px" }}/>
                 </IconButton>
             </div>
+        </div>
+    )
+}
+
+export function StopButtonDiv(props) {
+
+    return (
+        <div >
+            <Button
+                style={{background: "red"}}
+                variant="contained"
+                color="warning"
+                size="large"
+                onClick={props.stopFunction}
+            >
+                <PanToolIcon style={{marginRight:"10px"}}/>
+                Finalizar juego
+            </Button>
         </div>
     )
 }
