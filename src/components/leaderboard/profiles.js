@@ -7,17 +7,20 @@ export default function Profiles({ Leaderboard }) {
   let navigate = useNavigate();
   return (
     <div className="leaderboard-main-div">
-        <h1 className='leaderboard'>Ranking</h1>
-        <table className="scoreboard-table ">
-            <tr>
-                <th className='th'>Nombre</th>
-                <th className='th'>Correctas</th>
-                <th className='th'>Incorrectas</th>
-            </tr>
-            {Item(Leaderboard)}
-        </table>
+        <div className="leaderboard-table-div">
+            <h1 className='leaderboard'>Ranking</h1>
+            <table className="scoreboard-table ">
+                <tr>
+                    <th className='th'>Nombre</th>
+                    <th className='th'>Correctas</th>
+                    <th className='th'>Incorrectas</th>
+                </tr>
+                {Item(Leaderboard)}
+            </table>
+        </div>
         <Button
-            style={{marginTop: "25px"}}
+            className="leaderboard-back-button"
+            style={{marginTop: "25px", marginBottom: "25px"}}
             variant="contained"
             size="large"
             color="warning"
@@ -38,6 +41,7 @@ function Item(data){
                         <td className='td'>{value.name}</td>                
                         <td className='td' style={{color:"green"}}> + {value.correctAnswers}</td>
                         <td className='td' style={{marginLeft:"100px", color:"red"}}> - {value.incorrectAnswers}</td>
+                        <td className='td' style={{marginLeft:"100px", color:"red"}}> - {value.remainingTime}</td>
                     </tr>
                     )
                 )

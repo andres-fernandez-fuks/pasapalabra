@@ -9,7 +9,10 @@ export default function Timer(props) {
         if (gameTimer === null) return;
         
         if (gameTimer === 0) props.setGameOver(true);
-        else setTimeout(() => setGameTimer(gameTimer -1), 1000);
+        else {
+            props.updateFunction(gameTimer);
+            setTimeout(() => setGameTimer(gameTimer -1), 1000);
+        }
     }, [gameTimer]);
 
     React.useEffect(() => {

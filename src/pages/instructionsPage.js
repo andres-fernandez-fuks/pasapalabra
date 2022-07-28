@@ -10,7 +10,6 @@ export default function InstructionsPage() {
     let navigate = useNavigate();
 
     const handleImageLoaded = () => {
-        debugger;
         setLoading(false);
     }
 

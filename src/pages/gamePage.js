@@ -72,6 +72,7 @@ export default function App() {
   const [playNext, setPlayNext] = useState(false);
   const [alreadyPlaying, setAlreadyPlaying] = useState(false);
   const [canRestartRound, setCanRestartRound] = useState(false);
+  const [remainingTime, setRemainingTime] = useState(null);
 
   React.useEffect(() => {
     setOpenModal(true);
@@ -94,7 +95,6 @@ export default function App() {
   React.useEffect( () => {
       if (activeLetter && !dictaphoneActive) {
         if (activeLetter === 'A' && alreadyPlaying && !canRestartRound) {
-          debugger;
           updateRound();
           return;
         }
@@ -204,7 +204,7 @@ export default function App() {
     } else {
       return (
         <div className="timer-div">
-          <Timer startTimer={isPlaying} setGameOver={setGameOver} />
+          <Timer startTimer={isPlaying} setGameOver={setGameOver} updateFunction={setRemainingTime} />
         </div>
       )
     }
@@ -221,6 +221,7 @@ export default function App() {
         name: playerName,
         correct: gameStatus.correct,
         incorrect: gameStatus.incorrect,
+        remaining: remainingTime,
     }
     addNewScore(score, answerLog);
     setOpenThanksModal(true);

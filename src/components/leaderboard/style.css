@@ -17,14 +17,6 @@
         height: 100vh;
 }
 
-#score-main{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    background: linear-gradient(45deg, #4CAF50 30%, #C8E6C9 90%);
-}
-
 .board {
     text-align: center;
 }
@@ -114,5 +106,13 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    height: 100vh;
+    min-height: 100vh;
+    background: linear-gradient(45deg, #4CAF50 30%, #C8E6C9 90%);
+}
+
+.leaderboard-table-div {
+    display: inherit;
+    flex-direction: column;
+    align-items: center;
+    width: 50%;
 }

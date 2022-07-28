@@ -22,7 +22,6 @@ export default function ButtonsDiv(props) {
 }
 
 export function StopButtonDiv(props) {
-    debugger;
     return (
         <div >
             <Button
