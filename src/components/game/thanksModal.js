@@ -19,6 +19,7 @@ const dialogStyles = makeStyles(theme => ({
         height : '400px',
         width : '400px',
         justifyContent: "center",
+        alignItems: "center",
         backgroundColor: "white",
     },
 }));
@@ -34,7 +35,6 @@ const selectStyles = {
 }
 
 export default function FormDialog(props) {
-  const [open, setOpen] = React.useState(false);
   const classes = dialogStyles();
   let navigate = useNavigate();
 
@@ -46,11 +46,11 @@ export default function FormDialog(props) {
     <div >
       <Dialog maxWidth="lg" open={props.open} onClose={handleReturn} classes={{ paper : classes.dialogPaper}}>
         <DialogContent>
-          <div className="modal-main-div">
-            <div>
-              <img className="presentator-img" src={presentatorImage} alt="Presentador" />
+          <div className="thanks-modal-main-div">
+            <div style={{position: "absolute", top:"20%"}}>
+              <img className="presentator-img" src={presentatorImage} alt="Presentador"/>
             </div>
-            <div style={{paddingTop: "5px"}}>
+            <div style={{position: "absolute", top:"70%"}}>
             ¡¡Gracias por jugar!!
             </div>
             <div style={{marginTop:"10px"}}/>

@@ -101,3 +101,15 @@
     padding-bottom:0.5%;
 }
 
+.thanks-modal-main-div {
+    font-family: 'Edu QLD Beginner';
+    font-size: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding-top:0.5%;
+    padding-bottom:0.5%;
+}
+

@@ -22,15 +22,16 @@ export default function ButtonsDiv(props) {
 }
 
 export function StopButtonDiv(props) {
-
+    debugger;
     return (
         <div >
             <Button
-                style={{background: "red"}}
+                style={{background: "red", display: props.hidden ? 'none' : undefined }}
                 variant="contained"
                 color="warning"
                 size="large"
                 onClick={props.stopFunction}
+                hidden={props.hidden}
             >
                 <PanToolIcon style={{marginRight:"10px"}}/>
                 Finalizar juego

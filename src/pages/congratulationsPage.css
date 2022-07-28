@@ -16,7 +16,51 @@
 }
 
 .cake-img {
+    position: absolute;
+    top: 20%;
     width:250px;
+    height: auto;
+}
+
+.message-1 {
+    position: absolute;
+    top: 10%;
+    width: 35%;
+    height: auto;
+}
+
+.message-2 {
+    position: absolute;
+    top: 65%;
+    width: 35%;
+    height: auto;
+}
+
+.congrat-msg {
+    position: absolute;
+    top: 80%;
+    width: 35%;
+    height: auto;
+}
+
+.family-msg {
+    position: absolute;
+    top: 82.5%;
+}
+
+.heart-img-1 {
+    position: absolute;
+    top: 60%;
+    left: 22.5%;
+    width: 7.5%;
+    height: auto;
+}
+
+.heart-img-2 {
+    position: absolute;
+    top: 60%;
+    right: 22.5%;
+    width: 7.5%;
     height: auto;
 }
 

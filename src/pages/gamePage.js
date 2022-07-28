@@ -23,9 +23,9 @@ function delay(time) {
 
 const DEFAULT_INFO = {
     'A': {status: 'pending', nextLetter: 'B', correct_answers: ['anchorena']},
-    'B': {status: 'pending', nextLetter: 'C', correct_answers: ['benchi', 'benjamín', 'enchi', 'benci', 'venchi', 'benji']},
+    'B': {status: 'pending', nextLetter: 'C', correct_answers: ['benchi', 'benjamín', 'enchi', 'benci', 'venchi', 'benji', 'denki', 'bengie']},
     'C': {status: 'pending', nextLetter: 'D', correct_answers: ['chacabuco']},
-    'D': {status: 'pending', nextLetter: 'E', correct_answers: ['duda']},
+    'D': {status: 'pending', nextLetter: 'E', correct_answers: ['duda', 'dura']},
     'E': {status: 'pending', nextLetter: 'F', correct_answers: ['encarta']},
     'F': {status: 'pending', nextLetter: 'G', correct_answers: ['familia']},
     'G': {status: 'pending', nextLetter: 'H', correct_answers: ['ginebra', 'gin', 'sin']},
@@ -34,7 +34,7 @@ const DEFAULT_INFO = {
     'J': {status: 'pending', nextLetter: 'L', correct_answers: ['jeroglífico', 'jeroglíficos']},
     'L': {status: 'pending', nextLetter: 'M', correct_answers: ['litoral']},
     'M': {status: 'pending', nextLetter: 'N', correct_answers: ['mitsubishi']},
-    'N': {status: 'pending', nextLetter: 'Ñ', correct_answers: ['nómade']},
+    'N': {status: 'pending', nextLetter: 'Ñ', correct_answers: ['nómade', 'nómada', 'nómades']},
     'Ñ': {status: 'pending', nextLetter: 'O', correct_answers: ['alimaña', 'alemania']},
     'O': {status: 'pending', nextLetter: 'P', correct_answers: ['ornitorrinco']},
     'P': {status: 'pending', nextLetter: 'Q', correct_answers: ['penélope']},
@@ -44,9 +44,9 @@ const DEFAULT_INFO = {
     'T': {status: 'pending', nextLetter: 'U', correct_answers: ['trampolín']},
     'U': {status: 'pending', nextLetter: 'V', correct_answers: ['utopía']},
     'V': {status: 'pending', nextLetter: 'X', correct_answers: ['valiant']},
-    'X': {status: 'pending', nextLetter: 'Y', correct_answers: ['próximo']},
-    'Y': {status: 'pending', nextLetter: 'Z', correct_answers: ['peyorativo']},
-    'Z': {status: 'pending', nextLetter: 'A', correct_answers: ['zicovich']},
+    'X': {status: 'pending', nextLetter: 'Y', correct_answers: ['axioma']},
+    'Y': {status: 'pending', nextLetter: 'Z', correct_answers: ['harry']},
+    'Z': {status: 'pending', nextLetter: 'A', correct_answers: ['zicovich', 'sicoin', 'zicoin', '5 bits']},
 }
 
 export default function App() {
@@ -56,7 +56,6 @@ export default function App() {
   const [isPlaying, setIsPlaying] = useState(false);
   const [answer, setAnswer] = useState(null);
   const [resetTranscript, setResetTranscript] = useState(false);
-  const [dictaphoneListening, setDictaphoneListening] = useState(false);
   const [playerName, setPlayerName] = useState('');
   const [openModal, setOpenModal] = useState(false);
   const [gameOver, setGameOver] = useState(false);
@@ -67,7 +66,6 @@ export default function App() {
       skipped: 0,
     }
   );
-  const [sendScore, setSendScore] = useState(true);
   const [answerLog, setAnswerLog] = useState({});
   const [openThanksModal, setOpenThanksModal] = useState(false);
   const [currentAudio, setCurrentAudio] = useState(null);
@@ -178,10 +176,6 @@ export default function App() {
     setAnswer(finalTranscript);
   }
 
-  const dictaphoneListeningFunction = (isListening) => {
-    setDictaphoneListening(isListening);
-  }
-
   const playNextQuestion = () => {
     setPlayNext(false);
     var audio = AudioPlayer(activeLetter);
@@ -216,30 +210,30 @@ export default function App() {
     }
   }
 
+  const isSpecialPlayer = () => {
+    return ['Ady', 'Adi', 'Adriana', 'Adyta', 'Adita'].includes(playerName);
+  }
+
   const handleGameOver = () => {
-    debugger;
     if (currentAudio) currentAudio.pause();
     setIsPlaying(false);
-    let score;
-    if (sendScore) {
-        score = {
+    let score = {
         name: playerName,
         correct: gameStatus.correct,
         incorrect: gameStatus.incorrect,
-        }
-      } else {
-        score = null;
-      }
+    }
     addNewScore(score, answerLog);
     setOpenThanksModal(true);
     delay(2000).then(() => {
       setOpenThanksModal(false);
-      navigate(routes.introductionPage);
+      if (isSpecialPlayer())
+        navigate(routes.congratulationsPage);
+      else
+        navigate(routes.introductionPage);
     });
   }
 
   const stopPlaying = () => {
-    setSendScore(false); // cambiar
     setGameOver(true);
   }
 
@@ -279,7 +273,6 @@ export default function App() {
         dictaphoneActive={dictaphoneActive}
         answer={answer}
         updateFunction={dictaphoneUpdateFunction}
-        listeningFunction={dictaphoneListeningFunction}
         resetTranscript={resetTranscript}
       />
       <ScoreDiv
@@ -291,7 +284,7 @@ export default function App() {
       {renderCentralDiv()}
       <NameModal open={openModal} selectionFunction={nameSelectionFunction}/>
       <div className="stop-button-div">
-        <StopButtonDiv stopFunction={stopPlaying}  />
+        <StopButtonDiv stopFunction={stopPlaying} hidden={!isPlaying}  />
       </div>
       <ThanksModal open={gameOver} />
       <div className="mic-icon-div">

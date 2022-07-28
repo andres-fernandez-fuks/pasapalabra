@@ -11,7 +11,7 @@ import track_i from "../../assets/audio/pregunta-I.ogg";
 import track_j from "../../assets/audio/pregunta-J.mp3";
 import track_l from "../../assets/audio/pregunta-L.mp3";
 import track_m from "../../assets/audio/pregunta-M.ogg";
-import track_n from "../../assets/audio/pregunta-N.mp3";
+import track_n from "../../assets/audio/pregunta-N.oga";
 import track_ni from "../../assets/audio/pregunta-Ñ.ogg";
 import track_o from "../../assets/audio/pregunta-O.ogg";
 import track_p from "../../assets/audio/pregunta-P.ogg";
@@ -22,9 +22,10 @@ import track_t from "../../assets/audio/pregunta-T.mp3";
 import track_u from "../../assets/audio/pregunta-U.ogg";
 import track_v from "../../assets/audio/pregunta-V.ogg";
 import track_x from "../../assets/audio/pregunta-X.mp3";
-import track_y from "../../assets/audio/pregunta-Y.mp3";
+import track_y from "../../assets/audio/pregunta-Y.mp4";
 import track_z from "../../assets/audio/pregunta-Z.ogg";
 import happyBirthdayAudio from "../../assets/audio/happy-birthday.mp3";
+import beatlesSong from "../../assets/audio/beatles-song.mp3";
 
 const determineTrack = (letter) => {
     switch (letter) {
@@ -101,5 +102,10 @@ export function SongPlayer(props) {
             audio.pause();
         }
     }, [props.audioEnabled]);
-    
+  };
+
+  export function playBeatlesSong() {
+    let audio = new Audio(beatlesSong);
+    audio.loop = false;
+    audio.play();
   };

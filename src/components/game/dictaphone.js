@@ -47,11 +47,6 @@ const Dictaphone = (props) => {
   }, [finalTranscript]);
 
   React.useEffect(() => {
-    if (listening === undefined) return;
-    props.listeningFunction(listening);
-    }, [listening]);
-
-  React.useEffect(() => {
     if (props.dictaphoneActive) {
       console.log("activando microfono...");
         SpeechRecognition.startListening({language: 'es-AR'});

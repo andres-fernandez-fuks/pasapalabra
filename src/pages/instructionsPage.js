@@ -31,9 +31,13 @@ export default function InstructionsPage() {
                         <li className="instruction">
                             Respondé las preguntas lo más claramente posible (para que <br/>funcione el reconocimiento de voz).
                         </li>
-                        <li className="instruction">
-                            Sumás puntos por cada respuesta correcta y restás puntos <br/> por cada respuesta incorrecta.
+                        <li className="instruction" style={{color:"red"}}>
+                            ¡Esperá a que aparezca el ícono del micrófono a la derecha <br/> antes de responder!
                         </li>
+                        <li className="instruction">
+                            Sumás puntos por cada respuesta correcta. Las respuestas <br/> incorrectas y el tiempo restante son un criterio de desempate.
+                        </li>
+ 
                         <li className="instruction">
                             Si no querés responder, decí "Pasapalabra" o esperá a que <br/> pasen 5 segundos.
                         </li>
