@@ -14,6 +14,7 @@ export default function Profiles({ Leaderboard }) {
                     <th className='th'>Nombre</th>
                     <th className='th'>Correctas</th>
                     <th className='th'>Incorrectas</th>
+                    <th className='th'>Tiempo restante</th>
                 </tr>
                 {Item(Leaderboard)}
             </table>
@@ -39,9 +40,9 @@ function Item(data){
                 data.map((value, index) => (
                     <tr>
                         <td className='td'>{value.name}</td>                
-                        <td className='td' style={{color:"green"}}> + {value.correctAnswers}</td>
-                        <td className='td' style={{marginLeft:"100px", color:"red"}}> - {value.incorrectAnswers}</td>
-                        <td className='td' style={{marginLeft:"100px", color:"red"}}> - {value.remainingTime}</td>
+                        <td className='td' style={{color:"darkGreen"}}>{value.correctAnswers}</td>
+                        <td className='td' style={{marginLeft:"100px", color:"darkRed"}}>{value.incorrectAnswers}</td>
+                        <td className='td' style={{marginLeft:"100px", color:"darkBlue"}}>{value.remainingTime}</td>
                     </tr>
                     )
                 )
