@@ -10,6 +10,7 @@ import track_h from "../../assets/audio/pregunta-H.ogg";
 import track_i from "../../assets/audio/pregunta-I.ogg";
 import track_j from "../../assets/audio/pregunta-J.mp3";
 import track_l from "../../assets/audio/pregunta-L.ogg";
+import track_l_alt from "../../assets/audio/pregunta-L-2.ogg";
 import track_m from "../../assets/audio/pregunta-M.ogg";
 import track_n from "../../assets/audio/pregunta-N.oga";
 import track_ni from "../../assets/audio/pregunta-Ñ.ogg";
@@ -27,7 +28,7 @@ import track_z from "../../assets/audio/pregunta-Z.ogg";
 import happyBirthdayAudio from "../../assets/audio/happy-birthday.mp3";
 import beatlesSong from "../../assets/audio/beatles-song.mp3";
 
-const determineTrack = (letter) => {
+const determineTrack = (letter, question_number) => {
     switch (letter) {
         case "A":
             return track_a;
@@ -50,7 +51,9 @@ const determineTrack = (letter) => {
         case "J":
             return track_j;
         case "L":
-            return track_l;
+            if (question_number === 0)
+                return track_l;
+            return track_l_alt;
         case "M":
             return track_m;
         case "N":
@@ -84,7 +87,7 @@ const determineTrack = (letter) => {
     }
 }
 
-export default function AudioPlayer(letter) {
+export default function AudioPlayer(letter, question_number) {
   var track = determineTrack(letter);
   const audio = new Audio(track);
   audio.loop = false;

@@ -16,6 +16,7 @@ import MicIcon from '@mui/icons-material/Mic';
 
 const POSSIBLE_STATUSES = ['pending', 'success', 'failure', 'skipped'];
 const TOTAL_QUESTIONS = 25;
+const QUESTION_NUMBER = Math.floor(Math.random() * 2);
 
 function delay(time) {
   return new Promise(resolve => setTimeout(resolve, time));
@@ -178,7 +179,7 @@ export default function App() {
 
   const playNextQuestion = () => {
     setPlayNext(false);
-    var audio = AudioPlayer(activeLetter);
+    var audio = AudioPlayer(activeLetter, QUESTION_NUMBER);
     setCurrentAudio(audio); // triggers audio play and then dictaphone starts
   }
 
