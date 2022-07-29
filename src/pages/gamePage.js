@@ -23,7 +23,7 @@ function delay(time) {
 
 const DEFAULT_INFO = {
     'A': {status: 'pending', nextLetter: 'B', correct_answers: ['anchorena']},
-    'B': {status: 'pending', nextLetter: 'C', correct_answers: ['benchi', 'benjamín', 'enchi', 'benci', 'venchi', 'benji', 'denki', 'bengie']},
+    'B': {status: 'pending', nextLetter: 'C', correct_answers: ['benchi', 'benjamín', 'enchi', 'benci', 'venchi', 'benji', 'denki', 'bengie', 'frenchie']},
     'C': {status: 'pending', nextLetter: 'D', correct_answers: ['chacabuco']},
     'D': {status: 'pending', nextLetter: 'E', correct_answers: ['duda', 'dura']},
     'E': {status: 'pending', nextLetter: 'F', correct_answers: ['encarta']},
@@ -31,7 +31,7 @@ const DEFAULT_INFO = {
     'G': {status: 'pending', nextLetter: 'H', correct_answers: ['ginebra', 'gin', 'sin']},
     'H': {status: 'pending', nextLetter: 'I', correct_answers: ['hortigueras', 'hortiguera', 'hortiguero', 'cordillera', 'cordilleras', 'prefieras']},
     'I': {status: 'pending', nextLetter: 'J', correct_answers: ['miriam makeva', 'makeva', 'miriam', 'miriam makeba', 'makeba']},
-    'J': {status: 'pending', nextLetter: 'L', correct_answers: ['jeroglífico', 'jeroglíficos']},
+    'J': {status: 'pending', nextLetter: 'L', correct_answers: ['jeroglífico', 'jeroglíficos', 'prolíficos']},
     'L': {status: 'pending', nextLetter: 'M', correct_answers: ['lucho', 'luis', 'mucho', 'lía', 'lío', 'mía']},
     'M': {status: 'pending', nextLetter: 'N', correct_answers: ['mitsubishi', 'shuichi', 'mitsu']},
     'N': {status: 'pending', nextLetter: 'Ñ', correct_answers: ['nómade', 'nómada', 'nómades', 'nomás', 'nómadas', 'no mae']},
@@ -46,7 +46,7 @@ const DEFAULT_INFO = {
     'V': {status: 'pending', nextLetter: 'X', correct_answers: ['valiant', 'radiante', 'radiant', 'valiente', 'bryant']},
     'X': {status: 'pending', nextLetter: 'Y', correct_answers: ['axioma']},
     'Y': {status: 'pending', nextLetter: 'Z', correct_answers: ['harry']},
-    'Z': {status: 'pending', nextLetter: 'A', correct_answers: ['zicovich', 'sicoin', 'zicoin', '5 bits', 'sí coach', 'si coach', 'sicor']},
+    'Z': {status: 'pending', nextLetter: 'A', correct_answers: ['zicovich', 'sicoin', 'zicoin', '5 bits', 'sí coach', 'si coach', 'sicor', 'pb']},
 }
 
 export default function App() {
