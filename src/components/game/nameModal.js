@@ -64,7 +64,7 @@ export default function FormDialog(props) {
               <img className="presentator-img" src={presentatorImage} alt="Presentador" />
             </div>
             <div style={{paddingTop: "5px"}}>
-            ¿Cuál es tu nombre?
+            ¿Cuál es tu apodo?
             <TextField style={{paddingTop: "5px"}} id="name"variant="outlined" onChange={e => {handleChange(e)}} />
             </div>
             <div style={{marginTop:"10px"}}/>
