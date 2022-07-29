@@ -1,6 +1,8 @@
 import React from 'react';
 import SpeechRecognition, { useSpeechRecognition } from 'react-speech-recognition';
 
+const MAX_IDLE_TIME = 5;
+
 const Dictaphone = (props) => {
 
   const {
@@ -22,7 +24,7 @@ const Dictaphone = (props) => {
 
     if (!props.dictaphoneActive) return;
 
-    if (counter === 5) {
+    if (counter === MAX_IDLE_TIME) {
       props.updateFunction("pasapalabra");
       setCounter(null);
       return;
@@ -40,7 +42,7 @@ const Dictaphone = (props) => {
   React.useEffect(() => {
     if (props.dictaphoneActive && finalTranscript) {
       props.updateFunction(finalTranscript);
-      console.log("enviando transcript")
+      console.log("enviando transcript");
       setCounter(null);
       resetTranscript();
     }
@@ -48,13 +50,10 @@ const Dictaphone = (props) => {
 
   React.useEffect(() => {
     if (props.dictaphoneActive) {
-      console.log("activando microfono...");
         SpeechRecognition.startListening({language: 'es-AR'});
         setCounter(0);
     }
     else {
-        console.log("desactivando microfono...");
-        console.log("el counter es: " + counter);
         SpeechRecognition.abortListening();
     }
   }, [props.dictaphoneActive]);
