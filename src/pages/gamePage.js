@@ -122,6 +122,7 @@ export default function App() {
 
   React.useEffect( () => {
     if (!currentAudio || gameOver) return;
+    console.log("Letra actual: ", activeLetter);
     currentAudio.play();
     currentAudio.onended = () => {
       setDictaphoneActive(true);
