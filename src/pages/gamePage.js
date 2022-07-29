@@ -70,7 +70,6 @@ export default function App() {
   const [answerLog, setAnswerLog] = useState({});
   const [openThanksModal, setOpenThanksModal] = useState(false);
   const [currentAudio, setCurrentAudio] = useState(null);
-  const [playNext, setPlayNext] = useState(false);
   const [alreadyPlaying, setAlreadyPlaying] = useState(false);
   const [canRestartRound, setCanRestartRound] = useState(false);
   const [remainingTime, setRemainingTime] = useState(null);
@@ -122,6 +121,8 @@ export default function App() {
 
   React.useEffect( () => {
     if (!currentAudio || gameOver) return;
+    if (!currentAudio.paused) return; // sometimes it enters here twice, why? no why
+    debugger;
     console.log("Letra actual: ", activeLetter);
     currentAudio.play();
     currentAudio.onended = () => {
@@ -158,7 +159,6 @@ export default function App() {
     setResetTranscript(true);
     var log = `${answer} - ${answer_status}`;
     setAnswerLog({...answerLog, [activeLetter]: log});
-    setPlayNext(true);  // triggers playNextQuestion
     if (!alreadyPlaying) setAlreadyPlaying(true);
   }
 
@@ -179,7 +179,6 @@ export default function App() {
   }
 
   const playNextQuestion = () => {
-    setPlayNext(false);
     var audio = AudioPlayer(activeLetter, QUESTION_NUMBER);
     setCurrentAudio(audio); // triggers audio play and then dictaphone starts
   }
@@ -187,7 +186,6 @@ export default function App() {
   const startFunction = () => {
     setActiveLetter('A');
     setIsPlaying(true);
-    setPlayNext(true);
   }
 
   const nameSelectionFunction = (name) => {
