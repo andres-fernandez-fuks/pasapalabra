@@ -33,13 +33,6 @@ const Dictaphone = (props) => {
   }, [counter]);
 
   React.useEffect(() => {
-    if (props.resetTranscript) {
-        console.log("reseteando transcript");
-        resetTranscript();
-      }
-  }, [props.resetTranscript]);
-
-  React.useEffect(() => {
     if (props.dictaphoneActive && finalTranscript) {
       props.updateFunction(finalTranscript);
       console.log("enviando transcript");
