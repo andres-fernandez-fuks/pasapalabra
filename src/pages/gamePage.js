@@ -73,6 +73,7 @@ export default function App() {
   const [alreadyPlaying, setAlreadyPlaying] = useState(false);
   const [canRestartRound, setCanRestartRound] = useState(false);
   const [remainingTime, setRemainingTime] = useState(null);
+  const [audioIsPlaying, setAudioIsPlaying] = useState(false);
 
   React.useEffect(() => {
     setOpenModal(true);
@@ -121,12 +122,15 @@ export default function App() {
 
   React.useEffect( () => {
     if (!currentAudio || gameOver) return;
-    if (!currentAudio.paused) return; // sometimes it enters here twice, why? no why
-    debugger;
+    if (audioIsPlaying) return; // sometimes it enters here twice, why? no why
+
     console.log("Letra actual: ", activeLetter);
+    console.log("Audio Playing: ", audioIsPlaying);
     currentAudio.play();
+    setAudioIsPlaying(true);
     currentAudio.onended = () => {
       setDictaphoneActive(true);
+      setAudioIsPlaying(false);
     }
   }, [currentAudio]);
 
