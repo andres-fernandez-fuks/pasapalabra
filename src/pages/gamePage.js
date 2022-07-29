@@ -16,7 +16,6 @@ import MicIcon from '@mui/icons-material/Mic';
 
 const POSSIBLE_STATUSES = ['pending', 'success', 'failure', 'skipped'];
 const TOTAL_QUESTIONS = 25;
-const QUESTION_NUMBER = Math.floor(Math.random() * 2);
 
 function delay(time) {
   return new Promise(resolve => setTimeout(resolve, time));
@@ -30,24 +29,24 @@ const DEFAULT_INFO = {
     'E': {status: 'pending', nextLetter: 'F', correct_answers: ['encarta']},
     'F': {status: 'pending', nextLetter: 'G', correct_answers: ['familia']},
     'G': {status: 'pending', nextLetter: 'H', correct_answers: ['ginebra', 'gin', 'sin']},
-    'H': {status: 'pending', nextLetter: 'I', correct_answers: ['hortigueras', 'hortiguera', 'hortiguero', 'cordillera', 'cordilleras']},
+    'H': {status: 'pending', nextLetter: 'I', correct_answers: ['hortigueras', 'hortiguera', 'hortiguero', 'cordillera', 'cordilleras', 'prefieras']},
     'I': {status: 'pending', nextLetter: 'J', correct_answers: ['miriam makeva', 'makeva', 'miriam', 'miriam makeba', 'makeba']},
     'J': {status: 'pending', nextLetter: 'L', correct_answers: ['jeroglífico', 'jeroglíficos']},
-    'L': {status: 'pending', nextLetter: 'M', correct_answers: ['litoral']},
+    'L': {status: 'pending', nextLetter: 'M', correct_answers: ['lucho', 'luis', 'mucho', 'lía', 'lío', 'mía']},
     'M': {status: 'pending', nextLetter: 'N', correct_answers: ['mitsubishi', 'shuichi', 'mitsu']},
-    'N': {status: 'pending', nextLetter: 'Ñ', correct_answers: ['nómade', 'nómada', 'nómades', 'nomás', 'nómadas']},
-    'Ñ': {status: 'pending', nextLetter: 'O', correct_answers: ['alimaña', 'alemania']},
+    'N': {status: 'pending', nextLetter: 'Ñ', correct_answers: ['nómade', 'nómada', 'nómades', 'nomás', 'nómadas', 'no mae']},
+    'Ñ': {status: 'pending', nextLetter: 'O', correct_answers: ['alimaña', 'alemania', 'maría']},
     'O': {status: 'pending', nextLetter: 'P', correct_answers: ['ornitorrinco']},
     'P': {status: 'pending', nextLetter: 'Q', correct_answers: ['penélope']},
     'Q': {status: 'pending', nextLetter: 'R', correct_answers: ['quesero', 'quesera']},
-    'R': {status: 'pending', nextLetter: 'S', correct_answers: ['rizoma']},
+    'R': {status: 'pending', nextLetter: 'S', correct_answers: ['rizoma', 'rezuma']},
     'S': {status: 'pending', nextLetter: 'T', correct_answers: ['sapiencia']},
-    'T': {status: 'pending', nextLetter: 'U', correct_answers: ['trampolín']},
+    'T': {status: 'pending', nextLetter: 'U', correct_answers: ['tónico', 'tónica', 'sonido', 'sonidos']},
     'U': {status: 'pending', nextLetter: 'V', correct_answers: ['utopía']},
-    'V': {status: 'pending', nextLetter: 'X', correct_answers: ['valiant', 'radiante', 'radiant', 'valiente']},
+    'V': {status: 'pending', nextLetter: 'X', correct_answers: ['valiant', 'radiante', 'radiant', 'valiente', 'bryant']},
     'X': {status: 'pending', nextLetter: 'Y', correct_answers: ['axioma']},
     'Y': {status: 'pending', nextLetter: 'Z', correct_answers: ['harry']},
-    'Z': {status: 'pending', nextLetter: 'A', correct_answers: ['zicovich', 'sicoin', 'zicoin', '5 bits', 'sí coach', 'si coach']},
+    'Z': {status: 'pending', nextLetter: 'A', correct_answers: ['zicovich', 'sicoin', 'zicoin', '5 bits', 'sí coach', 'si coach', 'sicor']},
 }
 
 export default function App() {
@@ -74,6 +73,7 @@ export default function App() {
   const [canRestartRound, setCanRestartRound] = useState(false);
   const [remainingTime, setRemainingTime] = useState(null);
   const [audioIsPlaying, setAudioIsPlaying] = useState(false);
+  const [questionNumber, setQuestionNumber] = React.useState(Math.floor(Math.random() * 2));
 
   React.useEffect(() => {
     setOpenModal(true);
@@ -183,7 +183,8 @@ export default function App() {
   }
 
   const playNextQuestion = () => {
-    var audio = AudioPlayer(activeLetter, QUESTION_NUMBER);
+    console.log("Question number: ", questionNumber);
+    var audio = AudioPlayer(activeLetter, questionNumber);
     setCurrentAudio(audio); // triggers audio play and then dictaphone starts
   }
 
