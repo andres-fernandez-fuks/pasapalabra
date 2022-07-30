@@ -176,6 +176,7 @@ export default function App() {
       }
     }
     setStatuses(oldStatuses);
+    setGameStatus({...gameStatus, skipped: 0})
   }
 
   const dictaphoneUpdateFunction = (finalTranscript) => {
