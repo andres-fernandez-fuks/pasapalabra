@@ -25,20 +25,20 @@ export default function InstructionsPage() {
                     </p>
                     <ol>
                         <li className="instruction">
-                            Introducí tu nombre y clickeá en el botón de Play para <br/> iniciar el juego .
+                            Introducí tu apodo y clickeá en el botón de Play para <br/> iniciar el juego .
                         </li>
                         <li className="instruction">
                             Respondé las preguntas lo más claramente posible (para que <br/>funcione el reconocimiento de voz).
                         </li>
                         <li className="instruction" style={{color:"red"}}>
-                            ¡Esperá a que aparezca el ícono del micrófono a la derecha <br/> antes de responder!
+                            ¡Esperá a que aparezca el ícono del micrófono a la izquierda <br/> antes de responder!
                         </li>
                         <li className="instruction">
                             Sumás puntos por cada respuesta correcta. Las respuestas <br/> incorrectas y el tiempo restante son un criterio de desempate.
                         </li>
  
                         <li className="instruction">
-                            Si no querés responder, decí "Pasapalabra" o esperá a que <br/> pasen 5 segundos.
+                            Si no querés responder, decí "Pasapalabra"<br/>
                         </li>
                     </ol>
                     <div className="instructions-buttons-div">

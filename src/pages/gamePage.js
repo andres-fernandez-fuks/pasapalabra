@@ -22,7 +22,7 @@ function delay(time) {
 }
 
 const DEFAULT_INFO = {
-    'A': {status: 'pending', nextLetter: 'B', correct_answers: ['anchorena']},
+    'A': {status: 'pending', nextLetter: 'B', correct_answers: ['anchorena', 'soriana']},
     'B': {status: 'pending', nextLetter: 'C', correct_answers: ['benchi', 'benjamín', 'enchi', 'benci', 'venchi', 'benji', 'denki', 'bengie', 'frenchie', 'penchy']},
     'C': {status: 'pending', nextLetter: 'D', correct_answers: ['chacabuco']},
     'D': {status: 'pending', nextLetter: 'E', correct_answers: ['duda', 'dura', 'dúo']},
@@ -35,14 +35,14 @@ const DEFAULT_INFO = {
     'L': {status: 'pending', nextLetter: 'M', correct_answers: ['lucho', 'luis', 'mucho', 'lía', 'lío', 'mía']},
     'M': {status: 'pending', nextLetter: 'N', correct_answers: ['mitsubishi', 'shuichi', 'mitsu']},
     'N': {status: 'pending', nextLetter: 'Ñ', correct_answers: ['nómade', 'nómada', 'nómades', 'nomás', 'nómadas', 'no mae']},
-    'Ñ': {status: 'pending', nextLetter: 'O', correct_answers: ['alimaña', 'alemania', 'maría']},
+    'Ñ': {status: 'pending', nextLetter: 'O', correct_answers: ['alimaña', 'alemania', 'maría', 'primaria']},
     'O': {status: 'pending', nextLetter: 'P', correct_answers: ['ornitorrinco']},
     'P': {status: 'pending', nextLetter: 'Q', correct_answers: ['penélope']},
     'Q': {status: 'pending', nextLetter: 'R', correct_answers: ['quesero', 'quesera', 't0', 'mesero']},
-    'R': {status: 'pending', nextLetter: 'S', correct_answers: ['rizoma', 'rezuma']},
-    'S': {status: 'pending', nextLetter: 'T', correct_answers: ['sapiencia']},
+    'R': {status: 'pending', nextLetter: 'S', correct_answers: ['rizoma', 'rezuma', 'rizzo']},
+    'S': {status: 'pending', nextLetter: 'T', correct_answers: ['sapiencia', 'piensa', 'pienso']},
     'T': {status: 'pending', nextLetter: 'U', correct_answers: ['tónico', 'tónica', 'sonido', 'sonidos']},
-    'U': {status: 'pending', nextLetter: 'V', correct_answers: ['utopía']},
+    'U': {status: 'pending', nextLetter: 'V', correct_answers: ['utopía', 'sofía']},
     'V': {status: 'pending', nextLetter: 'X', correct_answers: ['valiant', 'radiante', 'radiant', 'valiente', 'bryant']},
     'X': {status: 'pending', nextLetter: 'Y', correct_answers: ['axioma']},
     'Y': {status: 'pending', nextLetter: 'Z', correct_answers: ['harry', 'carry']},
