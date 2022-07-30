@@ -35,7 +35,7 @@ const DEFAULT_INFO = {
     'L': {status: 'pending', nextLetter: 'M', correct_answers: ['lucho', 'luis', 'mucho', 'lía', 'lío', 'mía']},
     'M': {status: 'pending', nextLetter: 'N', correct_answers: ['mitsubishi', 'shuichi', 'mitsu']},
     'N': {status: 'pending', nextLetter: 'Ñ', correct_answers: ['nómade', 'nómada', 'nómades', 'nomás', 'nómadas', 'no mae']},
-    'Ñ': {status: 'pending', nextLetter: 'O', correct_answers: ['alimaña', 'alemania', 'maría', 'primaria']},
+    'Ñ': {status: 'pending', nextLetter: 'O', correct_answers: ['alimaña', 'alemania', 'maría', 'primaria', 'mario']},
     'O': {status: 'pending', nextLetter: 'P', correct_answers: ['ornitorrinco']},
     'P': {status: 'pending', nextLetter: 'Q', correct_answers: ['penélope']},
     'Q': {status: 'pending', nextLetter: 'R', correct_answers: ['quesero', 'quesera', 't0', 'mesero']},
