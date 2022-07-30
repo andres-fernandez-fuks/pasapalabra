@@ -23,7 +23,7 @@ function delay(time) {
 
 const DEFAULT_INFO = {
     'A': {status: 'pending', nextLetter: 'B', correct_answers: ['anchorena', 'soriana']},
-    'B': {status: 'pending', nextLetter: 'C', correct_answers: ['benchi', 'benjamín', 'enchi', 'benci', 'venchi', 'benji', 'denki', 'bengie', 'frenchie', 'penchy']},
+    'B': {status: 'pending', nextLetter: 'C', correct_answers: ['benchi', 'benjamín', 'enchi', 'benci', 'venchi', 'benji', 'denki', 'bengie', 'frenchie', 'penchy', '20']},
     'C': {status: 'pending', nextLetter: 'D', correct_answers: ['chacabuco']},
     'D': {status: 'pending', nextLetter: 'E', correct_answers: ['duda', 'dura', 'dúo']},
     'E': {status: 'pending', nextLetter: 'F', correct_answers: ['encarta', 'carta', 'cartas']},
