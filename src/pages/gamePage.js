@@ -216,7 +216,7 @@ export default function App() {
   }
 
   const isSpecialPlayer = () => {
-    return ['Ady', 'Adi', 'Adriana', 'Adyta', 'Adita'].includes(playerName);
+    return ['ady', 'adi', 'adriana', 'adyta', 'adita'].includes(playerName.toLowerCase());
   }
 
   const handleGameOver = () => {
