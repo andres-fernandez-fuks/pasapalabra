@@ -35,8 +35,8 @@ export async function dbGet(category) {
     return await getResponseData(response, data);
 };
 
-export async function dbPut(category, putData) {
-  const requestData = contentAuthData("PUT", putData);
+export async function dbPost(category, postData) {
+  const requestData = contentAuthData("POST", postData);
   const response = await fetch(`${apiUri}/${category}`, requestData);
   const data = await response.json();
 

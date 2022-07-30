@@ -1,9 +1,10 @@
 import React from 'react';
 import Papa from 'papaparse';
-import { dbGet, dbPut } from '../../utils/dbFetcher';
+import { dbGet, dbPost } from '../../utils/dbFetcher';
 
 async function getData() {
     let data = await dbGet('scores');
+    debugger;
     const new_data = data.map(playerInfo => {
         return {
             name: playerInfo[0],
@@ -18,9 +19,9 @@ async function getData() {
 export async function addNewScore(score, answerLog) {
     let data = {
         "result": score ? [score.name, score.correct.toString(), score.incorrect.toString(), score.remaining.toString()] : null,
-        "log": answerLog
+        "log": [score.name, answerLog]
     }
-    await dbPut('scores', data);
+    await dbPost('scores', data);
 }
 
 export default getData;
