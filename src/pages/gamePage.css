@@ -15,31 +15,31 @@
   margin: 20px;
 }
 .circle-container img { display: block; width: 100%; }
-.deg0 { transform: translate(35vh); } /* 12em = half the width of the wrapper */
-.deg14 {transform: rotate(14.4deg) translate(35vh) rotate(-14.4deg);}
-.deg28 {transform: rotate(28.8deg) translate(35vh) rotate(-28.8deg);}
-.deg42 {transform: rotate(43.2deg) translate(35vh) rotate(-43.2deg);}
-.deg56 {transform: rotate(57.6deg) translate(35vh) rotate(-57.6deg);}
-.deg70 {transform: rotate(72deg) translate(35vh) rotate(-72deg);}
-.deg84 {transform: rotate(86.4deg) translate(35vh) rotate(-86.4deg);}
-.deg98 {transform: rotate(100.8deg) translate(35vh) rotate(-100.8deg);}
-.deg112 {transform: rotate(115.2deg) translate(35vh) rotate(-115.2deg);}
-.deg126 {transform: rotate(129.6deg) translate(35vh) rotate(-129.6deg);}
-.deg140 {transform: rotate(144deg) translate(35vh) rotate(-144deg);}
-.deg154 {transform: rotate(158.4deg) translate(35vh) rotate(-158.4deg);}
-.deg168 {transform: rotate(172.8deg) translate(35vh) rotate(-172.8deg);}
-.deg182 {transform: rotate(187.2deg) translate(35vh) rotate(-187.2deg);}
-.deg196 {transform: rotate(201.6deg) translate(35vh) rotate(-201.6deg);}
-.deg210 {transform: rotate(216deg) translate(35vh) rotate(-216deg);}
-.deg224 {transform: rotate(230.4deg) translate(35vh) rotate(-230.4deg);}
-.deg238 {transform: rotate(243.8deg) translate(35vh) rotate(-243.8deg);}
-.deg252 {transform: rotate(258.2deg) translate(35vh) rotate(-258.2deg);}
-.deg266 {transform: rotate(272.6deg) translate(35vh) rotate(-272.6deg);}
-.deg280 {transform: rotate(287deg) translate(35vh) rotate(-287deg);}
-.deg294 {transform: rotate(301.4deg) translate(35vh) rotate(-301.4deg);}
-.deg308 {transform: rotate(315.8deg) translate(35vh) rotate(-315.8deg);}
-.deg322 {transform: rotate(330.2deg) translate(35vh) rotate(-330.2deg);}
-.deg336 {transform: rotate(344.6deg) translate(35vh) rotate(-344.6deg);}
+.deg0 { transform: translate(40vh); } /* 12em = half the width of the wrapper */
+.deg14 {transform: rotate(14.4deg) translate(40vh) rotate(-14.4deg);}
+.deg28 {transform: rotate(28.8deg) translate(40vh) rotate(-28.8deg);}
+.deg42 {transform: rotate(43.2deg) translate(40vh) rotate(-43.2deg);}
+.deg56 {transform: rotate(57.6deg) translate(40vh) rotate(-57.6deg);}
+.deg70 {transform: rotate(72deg) translate(40vh) rotate(-72deg);}
+.deg84 {transform: rotate(86.4deg) translate(40vh) rotate(-86.4deg);}
+.deg98 {transform: rotate(100.8deg) translate(40vh) rotate(-100.8deg);}
+.deg112 {transform: rotate(115.2deg) translate(40vh) rotate(-115.2deg);}
+.deg126 {transform: rotate(129.6deg) translate(40vh) rotate(-129.6deg);}
+.deg140 {transform: rotate(144deg) translate(40vh) rotate(-144deg);}
+.deg154 {transform: rotate(158.4deg) translate(40vh) rotate(-158.4deg);}
+.deg168 {transform: rotate(172.8deg) translate(40vh) rotate(-172.8deg);}
+.deg182 {transform: rotate(187.2deg) translate(40vh) rotate(-187.2deg);}
+.deg196 {transform: rotate(201.6deg) translate(40vh) rotate(-201.6deg);}
+.deg210 {transform: rotate(216deg) translate(40vh) rotate(-216deg);}
+.deg224 {transform: rotate(230.4deg) translate(40vh) rotate(-230.4deg);}
+.deg238 {transform: rotate(243.8deg) translate(40vh) rotate(-243.8deg);}
+.deg252 {transform: rotate(258.2deg) translate(40vh) rotate(-258.2deg);}
+.deg266 {transform: rotate(272.6deg) translate(40vh) rotate(-272.6deg);}
+.deg280 {transform: rotate(287deg) translate(40vh) rotate(-287deg);}
+.deg294 {transform: rotate(301.4deg) translate(40vh) rotate(-301.4deg);}
+.deg308 {transform: rotate(315.8deg) translate(40vh) rotate(-315.8deg);}
+.deg322 {transform: rotate(330.2deg) translate(40vh) rotate(-330.2deg);}
+.deg336 {transform: rotate(344.6deg) translate(40vh) rotate(-344.6deg);}
 
 .main-row {
   display: flex;
