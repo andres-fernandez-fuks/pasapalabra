@@ -71,6 +71,15 @@
   font-family: 'Nanum Pen Script';
 }
 
+.play-button-div {
+    width: 5%;
+    position: fixed;
+    top: 36vh;
+    left: 42vw;
+    font-size: 150px;
+    font-family: 'Nanum Pen Script';
+  }
+
 .answer-div {
   position: absolute;
   top: 50%;

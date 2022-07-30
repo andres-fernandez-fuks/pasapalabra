@@ -202,7 +202,7 @@ export default function App() {
   const renderCentralDiv = () => {
     if (!isPlaying) {
       return (
-        <div className="button-div">
+        <div className="play-button-div">
           <ButtonsDiv startFunction={startFunction} />
         </div>
       )
