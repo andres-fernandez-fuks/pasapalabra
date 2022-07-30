@@ -28,7 +28,7 @@ const DEFAULT_INFO = {
     'D': {status: 'pending', nextLetter: 'E', correct_answers: ['duda', 'dura', 'dúo']},
     'E': {status: 'pending', nextLetter: 'F', correct_answers: ['encarta', 'carta', 'cartas']},
     'F': {status: 'pending', nextLetter: 'G', correct_answers: ['familia', 'miriam', 'familias']},
-    'G': {status: 'pending', nextLetter: 'H', correct_answers: ['ginebra', 'gin', 'sin', 'piedra', 'piedras', 'enebro', 'enhebro', 'enhebras', 'enhebra']},
+    'G': {status: 'pending', nextLetter: 'H', correct_answers: ['ginebra', 'gin', 'sin', 'piedra', 'piedras', 'enebro', 'enhebro', 'enhebras', 'enhebra', 'fin']},
     'H': {status: 'pending', nextLetter: 'I', correct_answers: ['hortigueras', 'hortiguera', 'hortiguero', 'cordillera', 'cordilleras', 'prefieras', 'tortilleras']},
     'I': {status: 'pending', nextLetter: 'J', correct_answers: ['miriam makeva', 'makeva', 'miriam', 'miriam makeba', 'makeba']},
     'J': {status: 'pending', nextLetter: 'L', correct_answers: ['jeroglífico', 'jeroglíficos', 'prolíficos']},
@@ -144,7 +144,7 @@ export default function App() {
         setStatuses({...statuses, [activeLetter]: {...statuses[activeLetter], status: 'success'}});
         setGameStatus({...gameStatus, correct: gameStatus.correct + 1});
         answer_status = 'success';
-    } else if (answer.includes('pasapalabra') || answer.includes('pasa palabra')) {
+    } else if (answer.includes('pasapalabra') || answer.includes('pasa palabra') || answer.includes('palabra')) {
         setStatuses({...statuses, [activeLetter]: {...statuses[activeLetter], status: 'skipped'}});
         setGameStatus({...gameStatus, skipped: gameStatus.skipped + 1});
         answer_status = 'skipped';
