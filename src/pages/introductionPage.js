@@ -59,7 +59,7 @@ export default function IntroductionPage(props) {
     }
 
     return (
-        <div className="main-div" id='main'>
+        <div className="introduction-main-div" id='main'>
             <div className="audio-button-div">
                 {audioButtonDiv()}
             </div>
@@ -75,7 +75,6 @@ export default function IntroductionPage(props) {
             <div className="title-2-div">
                 <img className="title-2-img" src={title2Gif} alt="Título" />
             </div>
-            <img className="frame-img" src={frameImg} alt="Marco" />
             <div className="intro-buttons-div">
                 <CustomButton
                     style={{ margin: "15px", color: "black", fontWeight: "bold", fontSize:"24px", fontFamily: "Papyrus", width: "300px", textTransform: "none"}}
