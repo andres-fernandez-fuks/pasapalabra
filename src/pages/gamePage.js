@@ -290,7 +290,7 @@ export default function App() {
       {renderCentralDiv()}
       <NameModal open={openModal} selectionFunction={nameSelectionFunction}/>
       <div className="stop-button-div">
-        <StopButtonDiv stopFunction={stopPlaying} hidden={!isPlaying}  />
+        <StopButtonDiv stopFunction={stopPlaying} isPlaying={isPlaying} startFunction={startFunction}  />
       </div>
       <ThanksModal open={gameOver} />
       <div className="mic-icon-div">

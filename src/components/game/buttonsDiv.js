@@ -22,19 +22,37 @@ export default function ButtonsDiv(props) {
 }
 
 export function StopButtonDiv(props) {
-    return (
-        <div >
-            <Button
-                style={{background: "red", display: props.hidden ? 'none' : undefined }}
-                variant="contained"
-                color="warning"
-                size="large"
-                onClick={props.stopFunction}
-                hidden={props.hidden}
-            >
-                <PanToolIcon style={{marginRight:"10px"}}/>
-                Finalizar juego
-            </Button>
-        </div>
-    )
+    if (props.isPlaying) {
+        return (
+            <div >
+                <Button
+                    style={{background: "red"}}
+                    variant="contained"
+                    color="warning"
+                    size="large"
+                    onClick={props.stopFunction}
+                    hidden={props.hidden}
+                >
+                    <PanToolIcon style={{marginRight:"10px"}}/>
+                    Finalizar juego
+                </Button>
+            </div>
+        )
+    } else {
+        return (
+            <div >
+                <Button
+                    style={{background: "green"}}
+                    variant="contained"
+                    color="warning"
+                    size="large"
+                    onClick={props.startFunction}
+                    hidden={props.hidden}
+                >
+                    <PlayCircleOutlineIcon style={{marginRight:"10px"}}/>
+                    Empezar juego
+                </Button>
+            </div>
+        )
+    } 
 }
