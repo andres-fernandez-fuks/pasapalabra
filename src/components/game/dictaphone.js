@@ -1,7 +1,7 @@
 import React from 'react';
 import SpeechRecognition, { useSpeechRecognition } from 'react-speech-recognition';
 
-const MAX_IDLE_TIME = 5;
+const MAX_IDLE_TIME = 10;
 
 const Dictaphone = (props) => {
 

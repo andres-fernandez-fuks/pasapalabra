@@ -23,7 +23,7 @@ function delay(time) {
 
 const DEFAULT_INFO = {
     'A': {status: 'pending', nextLetter: 'B', correct_answers: ['anchorena']},
-    'B': {status: 'pending', nextLetter: 'C', correct_answers: ['benchi', 'benjamín', 'enchi', 'benci', 'venchi', 'benji', 'denki', 'bengie', 'frenchie']},
+    'B': {status: 'pending', nextLetter: 'C', correct_answers: ['benchi', 'benjamín', 'enchi', 'benci', 'venchi', 'benji', 'denki', 'bengie', 'frenchie', 'penchy']},
     'C': {status: 'pending', nextLetter: 'D', correct_answers: ['chacabuco']},
     'D': {status: 'pending', nextLetter: 'E', correct_answers: ['duda', 'dura', 'dúo']},
     'E': {status: 'pending', nextLetter: 'F', correct_answers: ['encarta']},
@@ -38,14 +38,14 @@ const DEFAULT_INFO = {
     'Ñ': {status: 'pending', nextLetter: 'O', correct_answers: ['alimaña', 'alemania', 'maría']},
     'O': {status: 'pending', nextLetter: 'P', correct_answers: ['ornitorrinco']},
     'P': {status: 'pending', nextLetter: 'Q', correct_answers: ['penélope']},
-    'Q': {status: 'pending', nextLetter: 'R', correct_answers: ['quesero', 'quesera', 't0']},
+    'Q': {status: 'pending', nextLetter: 'R', correct_answers: ['quesero', 'quesera', 't0', 'mesero']},
     'R': {status: 'pending', nextLetter: 'S', correct_answers: ['rizoma', 'rezuma']},
     'S': {status: 'pending', nextLetter: 'T', correct_answers: ['sapiencia']},
     'T': {status: 'pending', nextLetter: 'U', correct_answers: ['tónico', 'tónica', 'sonido', 'sonidos']},
     'U': {status: 'pending', nextLetter: 'V', correct_answers: ['utopía']},
     'V': {status: 'pending', nextLetter: 'X', correct_answers: ['valiant', 'radiante', 'radiant', 'valiente', 'bryant']},
     'X': {status: 'pending', nextLetter: 'Y', correct_answers: ['axioma']},
-    'Y': {status: 'pending', nextLetter: 'Z', correct_answers: ['harry']},
+    'Y': {status: 'pending', nextLetter: 'Z', correct_answers: ['harry', 'carry']},
     'Z': {status: 'pending', nextLetter: 'A', correct_answers: ['zicovich', 'sicoin', 'zicoin', '5 bits', 'sí coach', 'si coach', 'sicor', 'pb']},
 }
 
