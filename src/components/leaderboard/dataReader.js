@@ -4,7 +4,6 @@ import { dbGet, dbPost } from '../../utils/dbFetcher';
 
 async function getData() {
     let data = await dbGet('scores');
-    debugger;
     const new_data = data.map(playerInfo => {
         return {
             name: playerInfo[0],

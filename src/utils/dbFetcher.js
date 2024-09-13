@@ -1,4 +1,4 @@
-var apiUri = process.env.BACKEND_URL;
+var backendUrl = process.env.REACT_APP_BACKEND_URL;
 
 const getAuthData = (type) => {
     const requestData = {
@@ -19,7 +19,7 @@ const contentAuthData = (type, body) => {
   return requestData;
 };
 
-async function getResponseData(response, data) {
+function getResponseData(response, data) {
     const { status } = response;
     if (status >= 200 && status < 300) {
       return data;
@@ -29,7 +29,9 @@ async function getResponseData(response, data) {
 
 export async function dbGet(category) {
     const requestData = getAuthData("GET");
-    const response = await fetch(`${apiUri}/${category}`, requestData);
+    const fullUrl = `${backendUrl}/${category}`;
+    console.log(fullUrl);
+    const response = await fetch(fullUrl, requestData);
     const data = await response.json();
   
     return await getResponseData(response, data);
@@ -37,7 +39,7 @@ export async function dbGet(category) {
 
 export async function dbPost(category, postData) {
   const requestData = contentAuthData("POST", postData);
-  const response = await fetch(`${apiUri}/${category}`, requestData);
+  const response = await fetch(`${backendUrl}/${category}`, requestData);
   const data = await response.json();
 
   return await getResponseData(response, data);
