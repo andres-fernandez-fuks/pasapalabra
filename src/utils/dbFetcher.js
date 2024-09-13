@@ -1,4 +1,4 @@
-var apiUri = process.env.REACT_APP_API_URI;
+var apiUri = process.env.BACKEND_URL;
 
 const getAuthData = (type) => {
     const requestData = {
